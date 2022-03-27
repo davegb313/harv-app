@@ -1,0 +1,35 @@
+.form-section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 7rem 0 7rem 0;
+    background-color: #47b3fa;
+}
+
+.form-section button {
+    color: #00233a;
+    border-color: #00233a;
+}
+
+.form-section Button {
+    margin-left: 2rem;
+    margin-top: 4px;
+}
+
+.results {
+    min-height: 65vh;
+    background-color: #47b3fa;
+}
+
+.results hr {
+    width: 65%;
+    border: 0.5px solid #000000;
+    margin-top: 0;
+}
+
+.no-results-card {
+    margin: 0 auto;
+    height: 3.4rem;
+    width: 22rem;
+    text-align: center;
+} 
