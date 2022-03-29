@@ -82,7 +82,6 @@ TablePaginationActions.propTypes = {
 
 
 const CustomTable = props => {
-  console.log(props.rows);
   const [page, setPage] = useState(0);
   const rowsPerPage = 10;
   const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - props.rows.length) : 0;

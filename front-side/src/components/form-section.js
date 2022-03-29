@@ -27,17 +27,6 @@ const inputReducer = (state, action) => {
     }
 };
 
-
-function createData(name, calories) {
-    return { name, calories };
-}
-
-const rows = [
-    { name : 'Cupcake', calories: 305 },
-];
-
-
-
 const Form = props => {
     const [isLoading, setIsLoading] = useState(false);
     const [loadedData, setLoadedData] = useState([]);
@@ -59,6 +48,7 @@ const Form = props => {
     const sendReqHandler = async () => {
         console.log('req sent for:', inputState.value);
         try {
+            setIsLoading(true);
             const response = await fetch('http://localhost:5000/getdata', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -73,6 +63,7 @@ const Form = props => {
 
             const returnedData = await response.json();
             let arrayOfData = returnedData.returnedData;
+            setIsLoading(false);
             setLoadedData(arrayOfData);
         } catch (err) {
             console.error(err);
@@ -81,6 +72,7 @@ const Form = props => {
 
     return (
         <React.Fragment>
+            {isLoading && <LoadingSpinner asOverlay />}
             <div className="form-section">
                 <TextField
                     sx={{ width: 250, }}
